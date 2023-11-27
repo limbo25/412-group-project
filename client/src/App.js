@@ -4,9 +4,11 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'; 
 
 // components 
-import Input from './components/Input';
+import Menu from './components/Menu';
 import LandingPage from './components/LandingPage';
 import Navbar from './components/NavBar';
+import AboutUs from './components/AboutUs';
+import Checkout from './components/Checkout';
 
 function App() {
   return (
@@ -14,12 +16,15 @@ function App() {
       <>
       <Navbar />
         <div className='container'> 
-
           <Routes>
-            <Route path='/' element={<LandingPage />}>
-            </Route>
-            <Route path='/menu' element={<Input />}>
-            </Route>
+            <Route path='/' element={<LandingPage />} />
+            <Route path='/menu' element={<Menu />} />
+            <Route path='/aboutus' element={<AboutUs />} />
+            <Route path='/checkout' element={<Checkout />} />
+
+
+
+
           </Routes>
         </div>
       </>   
