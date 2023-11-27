@@ -2,7 +2,7 @@ import React from "react";
 
 const Input = () => {
     return(
-        <h1> INPUT </h1>
+        <h1> Menu </h1>
     );
 }
 

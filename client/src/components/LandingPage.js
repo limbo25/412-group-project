@@ -4,7 +4,7 @@ const LandingPage = () => {
     return(
         <>
             <div className="bg-black">
-                <h1> this is the landing page </h1>
+                <h1> THIS IS THE LANDING PAGE  </h1>
             </div>
         </>
     );
