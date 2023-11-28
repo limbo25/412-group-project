@@ -4,8 +4,10 @@ const LandingPage = () => {
     return(
         <>
             <div className="bg-black">
-                <h1> THIS IS THE LANDING PAGE  </h1>
+                <h1 className=""> Welcome to our pizza paradise, where flavor meets convenience! 🍕🎉</h1>
             </div>
+            <img src={require("../assets/img1.jpg")} className="img-fluid" alt="pizza image"/>
+
         </>
     );
 }

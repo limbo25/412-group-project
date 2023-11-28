@@ -16,15 +16,12 @@ function App() {
       <>
       <Navbar />
         <div className='container'> 
+        
           <Routes>
             <Route path='/' element={<LandingPage />} />
             <Route path='/menu' element={<Menu />} />
             <Route path='/aboutus' element={<AboutUs />} />
             <Route path='/checkout' element={<Checkout />} />
-
-
-
-
           </Routes>
         </div>
       </>   
