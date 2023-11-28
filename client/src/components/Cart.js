@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const Checkout = () => {
+const Cart = () => {
 
     useEffect(() => {
         // Retrieve data from local storage when the component mounts
@@ -19,4 +19,4 @@ const Checkout = () => {
     );
 }
 
-export default Checkout; 
+export default Cart; 

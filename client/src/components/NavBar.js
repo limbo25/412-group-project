@@ -10,15 +10,17 @@ const Navbar = () => {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                    <a class="nav-item nav-link active text-white" href="http://localhost:3000/menu">Menu <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link active text-white" href="http://localhost:3000/checkout">Checkout <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link text-white" href="http://localhost:3000/aboutus">About Us</a>
+                        <a class="nav-item nav-link active text-white" href="http://localhost:3000/menu">Menu <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active text-white" href="http://localhost:3000/checkout">Checkout <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link text-white" href="http://localhost:3000/aboutus">About Us</a>
+                        <a class="navbar-brand" href="http://localhost:3000/cart">
+                            <img src={require("../assets/cart.png")} width="30" height="30" alt="" />
+                        </a>
                     </div>
                 </div>
             </nav>
-
         </>
     );
-}
+};
 
 export default Navbar; 
