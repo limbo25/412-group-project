@@ -44,7 +44,7 @@ const Menu = () => {
                             <h1 className="card-title">Pizza one </h1>
                             <h5 className="card-text">Ingredients</h5>
                             <p className="card-text">Pizza, bread, tomateo, beans. </p>
-                            <select class="form-control form-control-lg">
+                            <select class="form-control form-control-lg"> 
                                 <option> 8" Pizza</option>
                                 <option> 16" Pizza</option>
                                 <option> 24" Pizza</option>
