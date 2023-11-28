@@ -19,10 +19,9 @@ app.get("/api/", async(req, res) => {
     } catch (error) {
         console.error(error);
     }
-})
+});
 
 app.listen(5000, () => {
     console.log("server has started on port 5000"); 
 }); 
 
-console.log("this is data:", data)

@@ -14,16 +14,13 @@ function App() {
   return (
     <Router>
       <>
-      <Navbar />
-        <div className='container'> 
-        
+      <Navbar />        
           <Routes>
             <Route path='/' element={<LandingPage />} />
             <Route path='/menu' element={<Menu />} />
             <Route path='/aboutus' element={<AboutUs />} />
             <Route path='/checkout' element={<Checkout />} />
           </Routes>
-        </div>
       </>   
     </Router>
     );
