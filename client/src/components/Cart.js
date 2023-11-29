@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
     const [total, setTotal] = useState(-1); 
-
     
 
   useEffect(()  =>  {
@@ -30,6 +29,7 @@ const Cart = () => {
        {`Price: ${item.price}$`}
     </li>
   ));
+
 
   return (
     <>
