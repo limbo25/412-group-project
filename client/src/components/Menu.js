@@ -61,7 +61,7 @@ const Menu = () => {
             </select>
             <h1 className="display-5 d-flex justify-content-center"> {`${pizza.price}$`} </h1>
 
-            <a href="#" className="btn btn-primary d-flex justify-content-center mt-2" onClick={() => updateCart(pizza.itemname, pizza.price)}>Add to cart</a>
+            <a className="btn btn-primary d-flex justify-content-center mt-2" onClick={() => updateCart(pizza.itemname, pizza.price)}>Add to cart</a>
         </div>
     </div>
     ));
