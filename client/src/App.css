@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.about-us {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.about-header, .story, .vision-mission, .contact-info {
+  margin-bottom: 40px;
+}
+
+.about-image {
+  width: 70%;
+  height: 70%;
+  border-radius: 8px;
+}
