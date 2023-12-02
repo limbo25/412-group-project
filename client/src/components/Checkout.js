@@ -7,14 +7,48 @@ const Checkout = () => {
     const [userData, setUserData] = useState([{}]);
     const [address, setAddress] = useState("");
     const [phone, setPhone] = useState(""); 
+    const [pizzas, setPizzas] = useState([]);
+
+
+    const changeAddress = (e) => {
+        setAddress(e.target.value)
+        const newPIzzalist = cartItems.map((pizza, index) => pizza.itemName);
+        setPizzas(newPIzzalist);
+        setUserData(prevUserData => ({
+            phonenumber: phone,
+            address: address,
+            arrivetime: currentTime.toLocaleTimeString('en-US', { hour12: false }),
+            arriveDate: currentTime.toISOString().split('T')[0],
+            total: total, 
+            pizzas: pizzas
+        }));
+
+    }
+
+    const changePhone = (e) => {
+        setPhone(e.target.value)
+        const newPIzzalist = cartItems.map((pizza, index) => pizza.itemName);
+        setPizzas(newPIzzalist);
+        setUserData(prevUserData => ({
+            phonenumber: phone,
+            address: address,
+            arrivetime: currentTime.toLocaleTimeString('en-US', { hour12: false }),
+            arriveDate: currentTime.toISOString().split('T')[0],
+            total: total, 
+            pizzas: pizzas
+        }));
+
+    }
+
 
     useEffect(()  =>  {
         // Retrieve data from local storage when the component mounts
         const storedResponse = localStorage.getItem("response");
         if (storedResponse) {
-          const parsedResponse = JSON.parse(storedResponse);
-          setCartItems(parsedResponse);
-        //   setUserData({userID});
+            const parsedResponse = JSON.parse(storedResponse);
+            setCartItems(parsedResponse);
+            const newPIzzalist = cartItems.map((pizza, index) => pizza.itemName);
+            setPizzas(newPIzzalist);
         }
       }, []);
         
@@ -32,17 +66,18 @@ const Checkout = () => {
     };
 
     const makeOrder = async (e) => {
-        e.preventDefault(); 
         
-        setUserData({
-            name:"waleed", 
-            phonenumber: phone, 
-            address: address, 
+        e.preventDefault(); 
+
+        setUserData(prevUserData => ({
+            phonenumber: phone,
+            address: address,
             arrivetime: currentTime.toLocaleTimeString('en-US', { hour12: false }),
-            arriveDate: currentTime.toISOString().split('T')[0], 
-            total: total
-        });
-        console.log( userData );
+            arriveDate: currentTime.toISOString().split('T')[0],
+            total: total, 
+            pizzas: pizzas
+        }));
+
         try {
             const body = userData;
             const res = await fetch("http://localhost:5000/api/makeorder", {
@@ -50,9 +85,9 @@ const Checkout = () => {
                 headers: { "Content-Type": "application/json" }, 
                 body: JSON.stringify(userData)
             });
-            console.log(res);
+            console.log(res.json()); 
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
       }
 
@@ -73,16 +108,19 @@ const Checkout = () => {
                     <div class="form-row">
                         <div class="form-group col-md-6">
                         <label for="formGroupExampleInput">Phone Number</label>
-                        <input type="formGroupExampleInput" class="form-control" id="formGroupExampleInput" placeholder="Phone number ex:13073857130" onChange={(e) => {setPhone(e.target.value)}} />
+                        <input type="formGroupExampleInput" class="form-control" id="formGroupExampleInput" placeholder="Phone number ex:13073857130" onChange={(e) => {changePhone(e)}} />
                         </div>
                         <div class="form-group col-md-6">
                         <label for="inputAddress">Address</label>
-                        <input type="inputAddress" class="form-control" id="inputAddress" placeholder="ex:4557 Tea Berry Lane, Wakefield, Rhode Island, 02879" onChange={(e) => {setAddress(e.target.value)}}/>
+                        <input type="inputAddress" class="form-control" id="inputAddress" placeholder="ex:4557 Tea Berry Lane, Wakefield, Rhode Island, 02879" onChange={(e) => {changeAddress(e)}}/>
                         </div>
                     </div>
                     <div class="form-group">
                     </div>
-                    <button onClick={(e) => {makeOrder(e)}} type="submit" className="btn btn-primary btn-lg btn-block">Order</button> 
+                    <button onClick={(e) => {
+                        makeOrder(e); 
+                    }} 
+                    type="submit" className="btn btn-primary btn-lg btn-block">Order</button> 
                 </form>
             </div>
         </>

@@ -1,9 +1,14 @@
-import React, { useEffect, useState, useNavigate } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const Menu = () => {
     const [pizzaChoice, setPizzaChoice] = useState([]);
     const [oldValues, setOldValues] = useState([]);
     const [cartItem, setCartItems] = useState([]);
+    const navigate = useNavigate();
+
+
 
     const getData = async () => {
         try {
@@ -32,6 +37,7 @@ const Menu = () => {
 
     const saveResponseToLocalStorage = () => {
         localStorage.setItem("response", JSON.stringify(cartItem));
+        navigate('/cart')
       };
     
 
@@ -68,11 +74,10 @@ const Menu = () => {
 
     return(
         <>
-            <button onClick={() => {saveResponseToLocalStorage()}}>
-                show
-            </button>
-
-            <h1 className="mx-5 mb-5 mt-2 display-1 font-weight-bold"> Pizza Menu </h1>
+            < div className="row justify-content-around "> 
+                <h1 className="mx-5 mb-5 mt-2 display-1 font-weight-bold d-flex"> Pizza Menu </h1>
+                <a className="btn btn-primary d-flex justify-content-center mt-5"  onClick={() => saveResponseToLocalStorage()} style={{width:200, height:50}}>Go to cart</a>
+            </div>
             <div className="container">
                 <div className="container"> 
                     <div className="row justify-content-around" > 
